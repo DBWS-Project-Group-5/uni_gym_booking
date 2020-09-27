@@ -1,2 +1,2 @@
 # uni_gym_booking
-A time table to come to gym at Jacobs University Bremen.
+Due to the corona pandemic, Jacobs University’s gym has been shut down for a long time and now they finally decided to reopen the gym. However, since the pandemic is still not finished, the gym came up with a new regulation that it can have maximum of only 10 people at a time. Many people have gone to the gym only to find out that they have to go back to their room to wait an extra 30 minutes just because the gym is full. Thus, we came up with an idea of making an application/website that not only shows people how many people in the gym currently but also help the staffs to store the data of the members easily rather than writing everything on Excel.
