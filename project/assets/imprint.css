@@ -1,0 +1,51 @@
+.mprnt{
+    position: absolute;
+    width: 837px;
+    height: 405px;
+    left: 303px;
+    top: 234px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: justify;
+
+    color: #000000;
+}
+.disc{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: justify;
+
+    color: #000000;
+
+}
+
+.bdy{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: justify;
+
+    color: #000000;
+}
+
+.blundrln{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: justify;
+    text-decoration-line: underline;
+
+    color: #31C5E5;
+
+}
