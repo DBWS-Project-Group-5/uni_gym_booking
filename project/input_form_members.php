@@ -11,9 +11,10 @@
         list($y, $m, $d) = $member_exp_date;
         $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
     }
+    echo $member_exp_date;
         
     $stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, FROM_UNIXTIME(?));");
-    $stmt_member->bind_param('sss', $member_mail, $member_name, $member_expiry_date);
+    $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     if(!$stmt_member->execute()){
         header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=members");
         $stmt_member->close();
