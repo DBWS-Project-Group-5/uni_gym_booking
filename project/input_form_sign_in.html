@@ -11,21 +11,24 @@
     <!-- Bootstrap JS and JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
-
+    
     <body>
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Member input form</h2>
-                    <form method="post" action="input_form_members.php">
-                        <p><input type="text" name="member_mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="member_name" placeholder="Input name" required></p>
-                        <p><input type="date" name="member_exp_date" placeholder="Input expiry date" required></p>
-                        <p><select name="membership_type">
-                            <option value="gym_member">Gym member</option>
-                            <option value="pool_member">Pool member</option>
+                    <h2>Sign in input form</h2>
+                    <form method="post" action="input_form_sign_in.php">
+                        <!-- Get a list of members mails. Below are examples -->
+                        <p><select name="member_mail">
+                            <option value="mail_1">nibragimov@jacobs-university.de</option>
+                            <option value="mail_2">abo@jacobs-university.de</option>
+                            <option value="mail_3">skattel@jacobs-university.de</option>
                         </select></p>
-                        <button class="btn btn-primary" type="submit" name="member_submit_btn">Submit data</button>
+                        <p><select name="time_type">
+                            <option value="booking">Booking</option>
+                            <option value="came_in_date">Came in date</option>
+                        </select></p>
+                        <button class="btn btn-primary" type="submit" name="signin_submit_btn">Create Relationship</button>
                     </form>
                 </div>
             </div>

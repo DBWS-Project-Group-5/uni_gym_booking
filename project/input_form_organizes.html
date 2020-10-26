@@ -11,21 +11,26 @@
     <!-- Bootstrap JS and JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
-
+    
     <body>
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Member input form</h2>
-                    <form method="post" action="input_form_members.php">
-                        <p><input type="text" name="member_mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="member_name" placeholder="Input name" required></p>
-                        <p><input type="date" name="member_exp_date" placeholder="Input expiry date" required></p>
-                        <p><select name="membership_type">
-                            <option value="gym_member">Gym member</option>
-                            <option value="pool_member">Pool member</option>
+                    <h2>Organizes input form</h2>
+                    <form method="post" action="input_form_organizes.php">
+                        <!-- Get a list of staff mails. Below are examples -->
+                        <p><select name="staff_mail">
+                            <option value="rome@jacobs-university.de">rome@jacobs-university.de</option>
+                            <option value="hmaas@jacobs-university.de">hmaas@jacobs-university.de</option>
+                            <option value="schoenw@jacobs-university.de">schoenw@jacobs-university.de</option>
                         </select></p>
-                        <button class="btn btn-primary" type="submit" name="member_submit_btn">Submit data</button>
+                        <!-- Get a list of event name. Event name is unique. Below are examples -->
+                        <p><select name="event_name">
+                            <option value="Art fest">Art fest</option>
+                            <option value="Dancestoned">Dancestoned</option>
+                            <option value="Swimming competition">Swimming competition</option>
+                        </select></p>
+                        <button class="btn btn-primary" type="submit" name="oversees_submit_btn">Create Relationship</button>
                     </form>
                 </div>
             </div>
