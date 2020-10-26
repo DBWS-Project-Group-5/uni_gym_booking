@@ -22,7 +22,11 @@
 
     $stmt_timetable = $conn->prepare("INSERT INTO timetable (mail) VALUES (?);");
     $stmt_timetable->bind_param('s', $mail);
-    $stmt_timetable->execute();
+    if(!$stmt_timetable->execute()){
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=timetable");
+        $stmt_timetable->close();
+        exit();
+    }
     $stmt_timetable->close();
 
     if($status =='status_0'){
@@ -36,10 +40,15 @@
     }
     $stmt_came_in_date = $conn->prepare("INSERT INTO came_in_date (start_time, end_time, came_in_status) VALUES (FROM_UNIXTIME(?),
      FROM_UNIXTIME(?), ?);");
-    $stmt_booking->bind_param('iii', $start_time, $end_time, $status);
-    $stmt_booking->execute();
-    $stmt_booking->close();
+    $stmt_came_in_date->bind_param('iii', $start_time, $end_time, $status);
+    if(!$stmt_came_in_date->execute()){
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=timetable_and_came_in_date");
+    }
+    else{
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=timetable_and_came_in_date");
+    }
+    $stmt_came_in_date->close();
 
     $conn->close();
-
+    exit();
 ?>
