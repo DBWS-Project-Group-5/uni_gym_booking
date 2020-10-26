@@ -16,7 +16,7 @@
     //  VALUES ($member_mail, $member_name, STR_TO_DATE($member_exp_date,'%d-%M-%Y'));");
     // $sql = "INSERT INTO members (mail, members_name, members_expiry_date) VALUES ('Jim@rgr', 'Jim Hett','2017-06-15')";
     $sql = "INSERT INTO members (mail, members_name, members_expiry_date)
-        VALUES ($member_mail, $member_name, STR_TO_DATE($member_exp_date,'%d-%M-%Y'));";
+        VALUES ('$member_mail', '$member_name', 'STR_TO_DATE($member_exp_date,'%d-%M-%Y')');";
     
     // $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     // if(!$stmt_member->execute()){
