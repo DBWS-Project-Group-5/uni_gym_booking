@@ -21,6 +21,7 @@
         $stmt_member->close();
         exit();
     }
+    $stmt_member->close();
     // if ($conn->query($sql) === TRUE) {
     //     echo "Insertion successfull";
     // } else {
