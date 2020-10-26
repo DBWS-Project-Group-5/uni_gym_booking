@@ -12,17 +12,23 @@
         $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
     }
     echo $member_exp_date;
-        
+    $ml = "jim@dmx.com";
+    $nm = "Jim Jett";
     //$stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, FROM_UNIXTIME(?));");
 
-    $stmt_member = $conn->query("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (jim@dmx.com,Jim Finn,FROM_UNIXTIME($member_exp_date));");
+    $stmt_member = $conn->query("INSERT INTO members (mail, members_name, members_expiry_date)
+     VALUES ($ml, $nm, FROM_UNIXTIME($member_exp_date))");
     // $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     // if(!$stmt_member->execute()){
     //     header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=members");
     //     $stmt_member->close();
     //     exit();
     // }
-    $stmt_member->close();
+    if ($stmt_member === TRUE) {
+        echo "Insertion successfull";
+    } else {
+        echo "Error inserting into table: " . $conn->error;
+    }
 
     // if($membership_type == "gym_member"){
     //     $stmt_gym = $conn->prepare("INSERT INTO gym_members (members_mail) VALUES (?);");
