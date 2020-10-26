@@ -6,15 +6,18 @@
     $member_exp_date = $_POST['member_exp_date'];
     $membership_type = $_POST['membership_type'];
 
-    $member_exp_date = explode('-', $member_exp_date);
-    if(count($member_exp_date) == 3){
-        list($y, $m, $d) = $member_exp_date;
-        $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
-    }
-    echo $member_exp_date;
-    //$stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, FROM_UNIXTIME(?));");
-    $sql = "INSERT INTO members (mail, members_name, members_expiry_date) VALUES ('Jim@rgr', 'Jim Hett','2017-06-15')";
-
+    // $member_exp_date = explode('-', $member_exp_date);
+    // if(count($member_exp_date) == 3){
+    //     list($y, $m, $d) = $member_exp_date;
+    //     $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
+    // }
+    // echo $member_exp_date;
+    // $stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date)
+    //  VALUES ($member_mail, $member_name, STR_TO_DATE($member_exp_date,'%d-%M-%Y'));");
+    // $sql = "INSERT INTO members (mail, members_name, members_expiry_date) VALUES ('Jim@rgr', 'Jim Hett','2017-06-15')";
+    $sql = "INSERT INTO members (mail, members_name, members_expiry_date)
+        VALUES ($member_mail, $member_name, STR_TO_DATE($member_exp_date,'%d-%M-%Y'));";
+    
     // $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     // if(!$stmt_member->execute()){
     //     header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=members");
