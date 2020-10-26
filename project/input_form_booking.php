@@ -17,7 +17,7 @@
     $stmt_timetable->execute();
     $stmt_timetable->close();
 
-    $stmt_booking = $conn->prepare("INSERT INTO booking (book_time) VALUES (?);");
+    $stmt_booking = $conn->prepare("INSERT INTO booking (book_time) VALUES (FROM_UNIXTIME(?));");
     $stmt_booking->bind_param('i', $time);
     $stmt_booking->execute();
     $stmt_booking->close();

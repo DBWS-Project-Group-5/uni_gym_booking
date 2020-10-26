@@ -34,7 +34,8 @@
     else{
         $status = 2;
     }
-    $stmt_came_in_date = $conn->prepare("INSERT INTO came_in_date (start_time, end_time, came_in_status) VALUES (?, ?, ?);");
+    $stmt_came_in_date = $conn->prepare("INSERT INTO came_in_date (start_time, end_time, came_in_status) VALUES (FROM_UNIXTIME(?),
+     FROM_UNIXTIME(?), ?);");
     $stmt_booking->bind_param('iii', $start_time, $end_time, $status);
     $stmt_booking->execute();
     $stmt_booking->close();

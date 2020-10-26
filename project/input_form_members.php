@@ -12,7 +12,7 @@
         $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
     }
         
-    $stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, ?);");
+    $stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, FROM_UNIXTIME(?));");
     $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     $stmt_member->execute();
     $stmt_member->close();

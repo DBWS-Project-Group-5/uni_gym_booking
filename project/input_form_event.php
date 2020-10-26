@@ -12,7 +12,7 @@
         $event_date = mktime(0, 0, 0, $m, $d, $y);
     }
     
-    $stmt_event = $conn->prepare("INSERT INTO event (event_name, event_date, content) VALUES (?, ?, ?);");
+    $stmt_event = $conn->prepare("INSERT INTO event (event_name, event_date, content) VALUES (?, FROM_UNIXTIME(?), ?);");
     $stmt_event->bind_param('sis', $event_name, $event_date, $event_content);
     $stmt_event->execute();
     $stmt_event->close();
