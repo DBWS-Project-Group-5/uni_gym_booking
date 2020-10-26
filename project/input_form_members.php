@@ -13,7 +13,7 @@
     }
     echo $member_exp_date;
     //$stmt_member = $conn->prepare("INSERT INTO members (mail, members_name, members_expiry_date) VALUES (?, ?, FROM_UNIXTIME(?));");
-    $sql = "INSERT INTO members (mail, members_name, members_expiry_date) VALUES (jim, Jim hett, 2017-06-15)";
+    $sql = "INSERT INTO members (mail, members_name, members_expiry_date) VALUES (`jim`, `Jim Hett`,`2017-06-15`)";
 
     // $stmt_member->bind_param('ssi', $member_mail, $member_name, $member_expiry_date);
     // if(!$stmt_member->execute()){
