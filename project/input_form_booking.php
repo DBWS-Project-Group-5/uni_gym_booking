@@ -15,7 +15,7 @@
     $stmt_timetable = $conn->prepare("INSERT INTO timetable (mail) VALUES (?);");
     $stmt_timetable->bind_param('s', $mail);
     if(!$stmt_timetable->execute()){
-        header("");
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=timetable");
         exit();
     }
     $stmt_timetable->close();
@@ -23,10 +23,10 @@
     $stmt_booking = $conn->prepare("INSERT INTO booking (book_time) VALUES (FROM_UNIXTIME(?));");
     $stmt_booking->bind_param('i', $time);
     if($stmt_booking->execute()){
-        header("");
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=timetable");
     }
     else{
-        header("");
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=timetable_and_booking");
     }
     $stmt_booking->close();
 
