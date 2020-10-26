@@ -6,7 +6,7 @@
     $event_content = $_POST['event_content'];
 
     //create a UNIX timestamp for mysql table
-    $event_date = explode('-', $event_date);
+    $event_date = explode('/', $event_date);
     if(count($event_date) == 3){
         list($y, $m, $d) = $event_date;
         $event_date = mktime(0, 0, 0, $m, $d, $y);
