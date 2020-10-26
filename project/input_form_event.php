@@ -14,10 +14,19 @@
     
     $stmt_event = $conn->prepare("INSERT INTO event (event_name, event_date, content) VALUES (?, FROM_UNIXTIME(?), ?);");
     $stmt_event->bind_param('sss', $event_name, $event_date, $event_content);
-    $stmt_event->execute();
+    
+    if(!$stmt_event->execute()){
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=event");
+        $stmt_event->close();
+        exit();
+    }
+    else{
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=event");
+    }
+    
     $stmt_event->close();
 
     $conn->close();
-
+    exit();
 
 ?>

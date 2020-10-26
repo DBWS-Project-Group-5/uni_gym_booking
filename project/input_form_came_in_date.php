@@ -47,8 +47,8 @@
     else{
         header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=timetable_and_came_in_date");
     }
-    $stmt_came_in_date->close();
 
+    $stmt_came_in_date->close();
     $conn->close();
     exit();
 ?>

@@ -14,7 +14,14 @@
 
     $stmt_organizes = $conn->prepare("INSERT INTO organizes (staff_mail, event_id) VALUES (?, ?);");
     $stmt_organizes->bind_param('ss', $staff_mail, $event_id);
-    $stmt_organizes->execute();
+    if(!$stmt_organizes->execute()){
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=organizes");
+        $stmt_organizes->close();
+        exit();
+    }
+    else{
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=organizes_and_event");
+    }
     $stmt_organizes->close();
 
     $conn->close();

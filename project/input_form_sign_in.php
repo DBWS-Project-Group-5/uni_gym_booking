@@ -18,8 +18,15 @@
     $stmt_timetable->close();
 
     $stmt_signin = $conn->prepare("INSERT INTO sign_in (members_mail, timetable_id) VALUES (?, ?);");
-    $stmt_signin->bind_param('ss', $member_mail, $timetable_id);
-    $stmt_signin->execute();
+    $stmt_signin->bind_param('si', $member_mail, $timetable_id);
+    if(!$stmt_signin->execute()){
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=sign_in");
+        $stmt_signin->close();
+        exit();
+    }
+    else{
+        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=sign_in_and_timetable");
+    }
     $stmt_signin->close();
 
     $conn->close();
