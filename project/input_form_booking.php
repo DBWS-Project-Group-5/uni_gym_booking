@@ -6,7 +6,7 @@
 
     //create a UNIX timestamp for mysql table
     $time = explode(':', $time);
-    if(count(time) == 2){
+    if(count($time) == 2){
         list($s, $m) = $time;
         $today_date = mktime();
         $time = $today_date + $m * 60 + $s;
@@ -14,14 +14,22 @@
     
     $stmt_timetable = $conn->prepare("INSERT INTO timetable (mail) VALUES (?);");
     $stmt_timetable->bind_param('s', $mail);
-    $stmt_timetable->execute();
+    if(!$stmt_timetable->execute()){
+        header("");
+        exit();
+    }
     $stmt_timetable->close();
 
     $stmt_booking = $conn->prepare("INSERT INTO booking (book_time) VALUES (FROM_UNIXTIME(?));");
     $stmt_booking->bind_param('i', $time);
-    $stmt_booking->execute();
+    if($stmt_booking->execute()){
+        header("");
+    }
+    else{
+        header("");
+    }
     $stmt_booking->close();
 
     $conn->close();
-
+    exit();
 ?>
