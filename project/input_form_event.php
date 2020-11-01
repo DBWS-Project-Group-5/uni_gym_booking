@@ -1,6 +1,6 @@
 <?php
     require('../includes/config.php');
-
+    echo "<h1>I am running<h1>";
     $event_date = $_POST['event_date'];
     $event_name = $_POST['event_name'];
     $event_content = $_POST['event_content'];
@@ -28,5 +28,3 @@
 
     $conn->close();
     exit();
-
-?>
