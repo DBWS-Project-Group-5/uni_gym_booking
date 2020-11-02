@@ -51,88 +51,24 @@
         </ul>
       </div>
     </nav>
-
     <div class="container">
         <div class="row mt-4 justify-content-center">
-            <p>Result page</p>
+          <p>Members search form</p>
         </div>
-        
         <div class="row fullheight mt-1 justify-content-center">
             
-            
-        
-            <?php
-                if(!isset($_GET['table'])){
-                    header("Location: error.html");
-                    exit();
-                }
-                
-
-                if($_GET['table'] == 'event'){
-                    $table = $_GET['table'];
-                    if(!isset($_GET['id'])){
-                        header("Location: error.html");
-                        exit();
-                    }
-                    require('../includes/config.php');
-                        
-                    $stmt_event = $conn->prepare("SELECT * FROM event WHERE id=?");
-                    $stmt_event->bind_param('i', $id);
-                    $id = $_GET['id'];
-                    $stmt_event->execute();
-                    $arr = $stmt_event->get_result();
-                    $arr_1 = array();
-                    while($row_1 = $arr->fetch_assoc()){
-                        $arr_1[] = $row_1;
-                    }
-                    //var_dump($arr_1);
-                    if(!$arr_1){
-                        //var_dump($arr_1);
-                        echo "<h3>No match found :( </h3>";
-                        $stmt_event->close();
-                        exit();
-                    }
-                    
-                    printf("<p>Event with id = %d and name = %s will happen on date = %s</p>",
-                    $id, $arr_1[0]['event_name'], $arr_1[0]['event_date']);
-                    
-                    $stmt_event->close();
-                    $conn->close();
-                }
-                if($_GET['table'] == 'members'){
-                    $table = $_GET['table'];
-                    if(!isset($_GET['mail'])){
-                        header("Location: error.html");
-                        exit();
-                    }
-                    require('../includes/config.php');
-                        
-                    $stmt_members = $conn->prepare("SELECT * FROM members WHERE mail=?");
-                    $stmt_members->bind_param('s', $mail);
-                    $mail = $_GET['mail'];
-                    $stmt_members->execute();
-                    $arr = $stmt_members->get_result();
-                    $arr_1 = array();
-                    while($row_1 = $arr->fetch_assoc()){
-                        $arr_1[] = $row_1;
-                    }
-                    //var_dump($arr_1);
-                    if(!$arr_1){
-                        //var_dump($arr_1);
-                        echo "<h3>No match found :( </h3>";
-                        $stmt_members->close();
-                        exit();
-                    }
-                    
-                    printf("<p>Member with mail = %s and name = %s will have their membership expired on = %s</p>",
-                    $mail, $arr_1[0]['members_name'], $arr_1[0]['members_expiry_date']);
-                    
-                    $stmt_members->close();
-                    $conn->close();
-                }    
-            ?>
-
+            <form method="post" action="search_result_members.php">
+                <div class="form-group">
+                    <label for="searchFormEmail">Email</label>
+                    <input type="text" class="form-control" name="mail" id="searchFormEmailInput" placeholder="abo@jub.de">
+                  </div>
+                <div class="form-group">
+                    <button class="btn btn-dark" type="submit">Search</button>
+                </div>
+            </form>
         </div>
+    </div>
+
     <div class="container-fluid py-4">
         <div class='row footer d-flex flex-sm-row flex-column'>
             <div class="col-sm-4">
