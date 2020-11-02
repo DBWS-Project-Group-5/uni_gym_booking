@@ -26,6 +26,6 @@ LEFT JOIN `sign in` as s ON m.mail=s.members_mail
 LEFT JOIN timetable as t ON s.timetable_id=t.id
 LEFT JOIN came_in_date as c ON c.id_came_in_date=s.timetable_id;
 -- query 10
-SELECT m.name, s.name FROM members as m
-LEFT JOIN Oversees as o ON m.mail=o.members_mail
+SELECT m.members_name, s.staff_name FROM members as m
+LEFT JOIN oversees as o ON m.mail=o.members_mail
 LEFT JOIN staff as s ON s.mail=o.staff_mail;
