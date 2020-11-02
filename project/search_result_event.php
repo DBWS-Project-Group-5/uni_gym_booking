@@ -53,34 +53,65 @@
             </ul>
           </div>
         </nav>
-
+        
+        <?php
+          require('../includes/config.php');
+          $stmt_event = $conn->prepare("SELECT id, event_name, event_date FROM event WHERE event_name=?");
+          $stmt_event->bind_param('s', $event_name);
+          $event_name = $_POST['event_name'];
+          
+          $stmt_event->execute();
+          $arr = $stmt_event->get_result();
+          $arr_1 = array();
+          while($row_1 = $arr->fetch_assoc()){
+              $arr_1[] = $row_1;
+          }
+          //var_dump($arr_1);
+          if(!$arr_1){
+              //var_dump($arr_1);
+              echo "<h3>No match found :( </h3>";
+              $stmt_event->close();
+              exit();
+          }
+          $stmt_event->close();
+          $conn->close();
+        ?>
         
         <div class="row fullheight mt-5 justify-content-center">
           <div class="col-sm-8">
             <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Mail</th>
-                <th scope="col">Expiration Date</th>
+                  <th scope="col">Event id</th>
+                  <th scope="col">Event name</th>
+                  <th scope="col">Event date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">Mark Jasper</th>
-                <td>m.jasper@jacobs-university.de</td>
-                <td>11.11.2020</td>
+                <?php
+                  foreach($arr_1 as $row){
+                    echo "<tr>";
+                    echo "<th scope='row'>" . $row['id'] . "</th>";
+                    printf("<td><a href='result_page.php?table=event&id=%d'>%s</a></td>", $row['id'], $row['event_name']);
+                    echo "<td>" . $row['event_date'] . "</td>";
+                    echo "</tr>";
+                  }
+                ?>
+                <!-- <tr>
+                  <th scope="row">Mark Jasper</th>
+                  <td>m.jasper@jacobs-university.de</td>
+                  <td>m.jasper@jacobs-university.de</td>
                 </tr>
                 <tr>
-                <th scope="row">Jacob Khan</th>
-                <td>j.khan@jacobs-university.de</td>
-                <td>11.12.2020</td>
+                  <th scope="row">Jacob Khan</th>
+                  <td>j.khan@jacobs-university.de</td>
+                  <td>m.jasper@jacobs-university.de</td>
                 </tr>
                 <tr>
-                <th scope="row">Jonny lee</th>
-                <td>j.lee@jacobs-university.de</td>
-                <td>31.12.2020</td>
-                </tr>
+                  <th scope="row">Jonny lee</th>
+                  <td>j.lee@jacobs-university.de</td>
+                  <td>m.jasper@jacobs-university.de</td>
+                </tr> -->
             </tbody>
             </table>
           </div>
