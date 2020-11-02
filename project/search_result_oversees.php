@@ -56,8 +56,7 @@
         
         <?php
           require('../includes/config.php');
-          echo "hey";
-          $stmt_oversees = $conn->prepare("SELECT m.members_name, s.staff_name FROM members as m
+          $stmt_oversees = $conn->prepare("SELECT m.mail, m.members_name, s.staff_name FROM members as m
           LEFT JOIN oversees as o ON m.mail=o.members_mail
           LEFT JOIN staff as s ON s.mail=o.staff_mail WHERE o.members_mail=?");
           $stmt_oversees->bind_param('s', $mail);
@@ -84,7 +83,8 @@
             <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                  <th scope="col">Member name</th>
+                  <th scope="row">Member mail</th>
+                  <th scope="row">Member name</th>
                   <th scope="col">Staff name</th>
                 </tr>
             </thead>
@@ -92,7 +92,8 @@
                 <?php
                   foreach($arr_1 as $row){
                     echo "<tr>";
-                    printf("<td><a href='result_page.php?table=members&mail=%s'>%s</a></td>", $row['members_name'], $row['members_name']);
+                    printf("<th scope='row'>%s</th>", $row['mail']);
+                    printf("<td><a href='result_page.php?table=members&mail=%s'>%s</a></td>", $row['mail'], $row['members_name']);
                     echo "<td>" . $row['staff_name'] . "</td>";
                     echo "</tr>";
                   }
