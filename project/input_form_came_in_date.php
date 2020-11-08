@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        exit();
+    }
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -11,21 +18,22 @@
     <!-- Bootstrap JS and JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
-
+    
     <body>
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Member input form</h2>
-                    <form method="post" action="../includes/input_form_members.php">
-                        <p><input type="text" name="member_mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="member_name" placeholder="Input name" required></p>
-                        <p><input type="date" name="member_exp_date" placeholder="Input expiry date" required></p>
-                        <p><select name="membership_type">
-                            <option value="gym_member">Gym member</option>
-                            <option value="pool_member">Pool member</option>
+                    <h2>Came_in_date input form</h2>
+                    <form method="post" action="../includes/input_form_came_in_date.php">
+                        <p><label>Start Time: </label></label><input type="time" name="came_in_start_time" placeholder="Input start time" autofocus required></p>
+                        <p><label>End Time: </label></label><input type="time" name="came_in_end_time" placeholder="Input end time" required></p>
+                        <p><select name="came_in_status">
+                            <option value="status_0">Signed in</option>
+                            <option value="status_1">Out of time</option>
+                            <option value="status_2">Signed out</option>
                         </select></p>
-                        <button class="btn btn-primary" type="submit" name="member_submit_btn">Submit data</button>
+                        <p><input type="text" name="came_in_mail" placeholder="Input mail" required></p>
+                        <button class="btn btn-primary" type="submit" name="came_in_submit_btn">Submit data</button>
                     </form>
                 </div>
             </div>
