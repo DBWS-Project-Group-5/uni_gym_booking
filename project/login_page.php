@@ -58,7 +58,7 @@
                     echo "<h4 style='color:red'>Invalid Username/Password</h4>";
                 }
                 else{
-                    echo "<h4 style='color:red'>Unathorized Access Please do not attempt it"
+                    echo "<h4 style='color:red'>Unathorized Access Please do not attempt it";
                 }
             }
         ?>

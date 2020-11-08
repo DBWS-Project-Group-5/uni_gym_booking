@@ -61,10 +61,18 @@
           </div>
         </nav>
 
-
+        <?php
+          session_start();
+          if(!isset($_SESSION['login'])){
+            header("Location: login.php");
+          }
+          
+        ?>
         <div class="container">
           <div class="row fullheight">
             <div class="col-sm-4">
+
+            
               <!--entities-->
               <a href="input_form_booking.php">booking</a><br>
               <a href="input_form_came_in_date.php">came_in_date</a><br>
@@ -92,7 +100,7 @@
                     <a href="#">Contact</a><br>
                     <a href="#">About Us</a><br>
                     <a href="Imprint.html">Imprint</a><br>
-                    <a href="link_page.html">link page</a><br>
+                    <a href="link_page.php">link page</a><br>
                     <a href="#">FAQs</a><br>
                     
                   </div>

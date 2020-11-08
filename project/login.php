@@ -1,47 +1,15 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/styles.css">
-    </head>
-    <!-- Bootstrap JS and JQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
-    <?php
-        require('../includes/config.php');
-        $stmt_members = $conn->query("SELECT mail FROM members");
-        $arr_1 = array();
-        while($row_1 = $stmt_members->fetch_assoc()){
-
-            $arr_1[] = $row_1;
-        }
-        if(!$arr_1){
-            //var_dump($arr_1);
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=oversees");
-            $stmt_members->close();
-            exit();
-        }
-        $stmt_members->close();
-        $stmt_staff = $conn->query("SELECT mail FROM staff");
-        $arr_2 = array();
-        while($row_2 = $stmt_staff->fetch_assoc()){
-            $arr_2[] = $row_2;
-        }
-        if(!$arr_2){
-            //var_dump($arr_1);
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=oversees");
-            $stmt_staff->close();
-            exit();
-        }
-        $stmt_staff->close();
-        
-    
-        $conn->close();
-    ?>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>Home | Bookr</title>
+  </head>
   <body>
     <!-- <h1>Hello, world!</h1> -->
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper)-->
@@ -85,28 +53,33 @@
     </nav>
     <div class="container">
         <div class="row mt-4 justify-content-center">
-          <p>Oversees search form</p>
+          <p>Please login to the site</p>
+        </div>
+        <div class="row mt-4 justify-content-center">
+          <?php
+              if($_GET['error'] == 1){
+                echo "<p><b>Incorrect login or password</b></p>";
+              }
+              
+              
+          ?>
         </div>
         <div class="row fullheight mt-1 justify-content-center">
             
-            <form method="post" action="search_result_oversees.php">
+            <form method="post" action="../includes/login.php">
                 <div class="form-group">
-                    <label for="searchFormMembersMail">Member mail</label>
-                    <select name="members_mail">
-                            <?php 
-                                foreach($arr_1 as $row){
-                                    echo "<option value='". $row['mail'] . "'>" . $row["mail"] . "</option>";
-                                }
-                            ?>
-                            <!-- <option value="nibragimov@jub.de"><?php echo $arr_1[0]['mail']?></option>
-                            <option value="abo@jub.de"><?php echo $arr_1[1]['mail']?></option>
-                            <option value="jdoe@jub.de"><?php echo $arr_1[2]['mail']?></option> -->
-                        </select>
-                  </div>
+                    <label for="loginFormLogin">Login</label>
+                    <input type="text" class="form-control" name="login" id="loginFormLoginInput" required maxlength="40" placeholder="Your login">
+                </div>
                 <div class="form-group">
-                    <button class="btn btn-dark" type="submit">Search</button>
+                    <label for="loginFormPassword">Password</label>
+                    <input type="password" class="form-control" name="password" id="loginFormLoginPass" required placeholder="Your password">
+                </div>  
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Sign in</button>
                 </div>
             </form>
+
         </div>
     </div>
 
