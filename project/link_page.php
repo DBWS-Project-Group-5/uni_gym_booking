@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -67,17 +74,17 @@
 
             
               <!--entities-->
-              <a href="input_form_booking.html">booking</a><br>
-              <a href="input_form_came_in_date.html">came_in_date</a><br>
-              <a href="input_form_members.html">members</a><br>
-              <a href="input_form_staff.html">staff</a><br>
-              <a href="input_form_manager.html">Manager</a><br>
-              <a href="input_form_event.html">events</a><br>
+              <a href="input_form_booking.php">booking</a><br>
+              <a href="input_form_came_in_date.php">came_in_date</a><br>
+              <a href="input_form_members.php">members</a><br>
+              <a href="input_form_staff.php">staff</a><br>
+              <a href="input_form_manager.php">Manager</a><br>
+              <a href="input_form_event.php">events</a><br>
 
               <!--relations-->
-              <a href="input_form_sign_in.html">sign in</a><br>
+              <a href="input_form_sign_in.php">sign in</a><br>
               <a href="input_form_oversees.php">oversees</a><br>
-              <a href="input_form_organizes.html">organizes</a><br>
+              <a href="input_form_organizes.php">organizes</a><br>
               </div>
             </div>
         </div> 

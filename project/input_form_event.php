@@ -1,30 +1,37 @@
 <?php
-    require('../includes/config.php');
-    echo "<h1>I am running<h1>";
-    $event_date = $_POST['event_date'];
-    $event_name = $_POST['event_name'];
-    $event_content = $_POST['event_content'];
-
-    //create a UNIX timestamp for mysql table
-    $event_date = explode('/', $event_date);
-    if(count($event_date) == 3){
-        list($y, $m, $d) = $event_date;
-        $event_date = mktime(0, 0, 0, $m, $d, $y);
-    }
-    
-    $stmt_event = $conn->prepare("INSERT INTO event (event_name, event_date, content) VALUES (?, FROM_UNIXTIME(?), ?);");
-    $stmt_event->bind_param('sis', $event_name, $event_date, $event_content);
-    
-    if(!$stmt_event->execute()){
-        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=event");
-        $stmt_event->close();
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
         exit();
     }
-    else{
-        header("http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=event");
-    }
-    
-    $stmt_event->close();
+?>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    $conn->close();
-    exit();
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/styles.css">
+    </head>
+    <!-- Bootstrap JS and JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    
+    <body>
+        <div class="container">
+            <div class="row fullheight align-items-center">
+                <div class="col-sm-4 mx-auto">
+                    <h2>Event input form</h2>
+                    <form method="post" action="../includes/input_form_event.php">
+                        <p><input type="text" name="event_name" placeholder="Input name" autofocus required></p>
+                        <p><input type="date" name="event_date" placeholder="Input date" required></p>
+                        <p><textarea name="event_content" placeholder="Write about event" required rows="10" cols="40"></textarea></p>
+                        <button class="btn btn-primary" type="submit" name="event_submit_btn">Submit data</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,23 +1,23 @@
 <?php
-    require('../includes/config.php');
-    session_start();
-    $stmt_user = $conn->prepare("SELECT login, password FROM users WHERE login=? AND password=?");
-    $stmt_user->bind_param('ss', $login, $password);
-    $login = $_POST['login'];
-    $password = $_POST['password'];
-    $_SESSION['login'] = $login;
-    // if(!ctype_alnum($_POST['login'])){
-    //     header("Location: ../project/login.php?error=2");
-    // }
- 
-    $stmt_user->execute();
-    $arr = $stmt_user->get_result();
+    require('./config.php');
+    $login_stmt = $config->prepare("SELECT * from user_management WHERE email=? AND pwd=?");
+    $login_stmt->bind_param("ss", $u_name, $pwd);
 
-    if(!$row = $arr->fetch_assoc()){
+    $u_name = $_POST['u_name'];
+    $pwd = $_POST['pwd'];
 
-        header("Location: ../project/login.php?error=1");
+    $login_stmt->execute();
+
+    $result = $login_stmt->get_result();
+
+    while($row = $result->fetch_assoc()){
+        session_start();
+        $_SESSION["user_name"] = $u_name;
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/link_page.html");
+        $login_stmt->close;
+        $conn->close;
+        exit();
     }
-    print_r($_SESSION);
-    $stmt_user->close();
-    $conn->close();
-?>
+    header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+    $login_stmt->close;
+    $conn->close;
