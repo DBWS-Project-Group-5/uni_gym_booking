@@ -1,6 +1,6 @@
 <?php
     require('./config.php');
-    $login_stmt = $config->prepare("SELECT * from users WHERE u_name=? AND pwd=?");
+    $login_stmt = $config->prepare("SELECT * from user_management WHERE email=? AND pwd=?");
     $login_stmt->bind_param("ss", $u_name, $pwd);
 
     $u_name = $_POST['u_name'];
