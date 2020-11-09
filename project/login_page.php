@@ -46,68 +46,88 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item mx-5">
-            <a class="nav-link" href="link_page.php">Maintenance Page</a>
+            <a class="nav-link" href="link_page.html">Maintenance Page</a>
           </li>
         </ul>
       </div>
     </nav>
-        
+    <div class="container">
+        <div class="row mt-4 justify-content-center">
+          <p>Please login to the site</p>
+        </div>
+        <div class="row mt-4 justify-content-center">
         <?php
             if(isset($_GET['error'])){
                 if($_GET['error']==='invalid'){
-                    echo "<h4 style='color:red'>Invalid Username/Password</h4>";
+                    echo "<div class='alert alert-danger' role='alert'>Invalid Username/Password</div>";
                 }
                 else{
-                    echo "<h4 style='color:red'>Unathorized Access Please do not attempt it";
+                    echo "<div class='alert alert-danger' role='alert'>Unathorized Access! Please do not attempt it!</div>";
                 }
             }
         ?>
-        <input name="u_name" type="text" placeholder="username@jacobs-university.de">
-        <input name="pwd" type="password" placeholder="password">
-    </form>
-    
-    <div class="container-fluid py-4">
-      <div class='row footer d-flex flex-sm-row flex-column'>
-          <div class="col-sm-4">
-              <div class="pl-5 pt-2">
-                <b>Links</b><br>
-                <a href="#">Contact</a><br>
-                <a href="#">About Us</a><br>
-                <a href="Imprint.html">Imprint</a><br>
-                <a href="link_page.html">link page</a><br>
-                <a href="#">FAQs</a><br>
-              </div>
-          </div>
-          <div class="col-sm-4">
-              <div class="pl-5 pt-2">
-                <b>Regulations</b><br>
-                <b>Pool</b>
-                <ul>
-                    <li>Health and hygine</li>
-                </ul>
-                <b>Gym</b>
-                <ul>
-                    <li>Health and hygine</li>
-                </ul>
-              </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="pl-5 pt-2">
-              <b>Contact Us</b>
-              <p>Jacobs University Bremen GmbH</p>
-              <p>Campus Ring 1</p>
-              <p>28759 Bremen, Germany</p>
-              <p>+4942120040</p>
-              <a href='#'>campuslife@jacobs-university.de</a><br/>
-              <a href='#'>something@jacobs-university.de</a>
-            </div>
-          </div>
-          <div class="container-fluid">
-            <div class="row">
-              <p class='bookr mx-auto'>&copy; 2020 Bookr</p>
-            </div>
-          </div>
+        </div>
+        <div class="row fullheight mt-1 justify-content-center">
+            
+            <form method="post" action="../includes/login.php">
+                <div class="form-group">
+                    <label for="loginFormLogin">Login</label>
+                    <input type="text" class="form-control" name="u_name" id="loginFormLoginInput" required maxlength="40" placeholder="username@jub.de">
+                </div>
+                <div class="form-group">
+                    <label for="loginFormPassword">Password</label>
+                    <input type="password" class="form-control" name="pwd" id="loginFormLoginPass" required placeholder="Your password">
+                </div>  
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Sign in</button>
+                </div>
+            </form>
+
         </div>
     </div>
-  </body>
-</html>
+
+    <div class="container-fluid py-4">
+        <div class='row footer d-flex flex-sm-row flex-column'>
+            <div class="col-sm-4">
+                <div class="pl-5 pt-2">
+                  <b>Links</b><br>
+                  <a href="#">Contact</a><br>
+                  <a href="#">About Us</a><br>
+                  <a href="Imprint.html">Imprint</a><br>
+                  <a href="link_page.php">link page</a><br>
+                  <a href="#">FAQs</a><br>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="pl-5 pt-2">
+                  <b>Regulations</b><br>
+                  <b>Pool</b>
+                  <ul>
+                      <li>Health and hygine</li>
+                  </ul>
+                  <b>Gym</b>
+                  <ul>
+                      <li>Health and hygine</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="pl-5 pt-2">
+                <b>Contact Us</b>
+                <p>Jacobs University Bremen GmbH</p>
+                <p>Campus Ring 1</p>
+                <p>28759 Bremen, Germany</p>
+                <p>+4942120040</p>
+                <a href='#'>campuslife@jacobs-university.de</a><br/>
+                <a href='#'>something@jacobs-university.de</a>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <p class='bookr mx-auto'>&copy; 2020 Bookr</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </body>
+  </html>

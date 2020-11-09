@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user_name'])){
-        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        header("Location:../project/login_page.php?error=mismatch");
         exit();
     }
 ?>
@@ -61,13 +61,6 @@
           </div>
         </nav>
 
-        <?php
-          session_start();
-          if(!isset($_SESSION['login'])){
-            header("Location: login.php");
-          }
-          
-        ?>
         <div class="container">
           <div class="row fullheight">
             <div class="col-sm-4">
@@ -101,6 +94,7 @@
                     <a href="#">About Us</a><br>
                     <a href="Imprint.html">Imprint</a><br>
                     <a href="link_page.php">link page</a><br>
+                    <a href="login_page.php">login page</a><br>
                     <a href="#">FAQs</a><br>
                     
                   </div>
