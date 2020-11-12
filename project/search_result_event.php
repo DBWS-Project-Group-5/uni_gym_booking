@@ -1,3 +1,27 @@
+<?php
+require("../includes/config.php");
+  
+$access_stmt = $conn->prepare("INSERT INTO web_log (ip, browsers, web_page) VALUES (?, ?, ?)");
+
+foreach(getallheaders() as $key => $value){
+  if($key === "Host"){
+    $host = $key;
+  }
+  elseif($key === "User-Agent"){
+    $agents = $key;
+  }
+}
+$page = 16;
+$access_stmt->bind_param("ssi", $host, $agents, $page);
+
+if(!$access_stmt->execute()){
+  $access_stmt->close();
+  $conn->close();
+  exit(1);
+}
+$access_stmt->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html>
   <head>
