@@ -18,7 +18,39 @@
     <!-- Bootstrap JS and JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    <?php
+         
+         require('../includes/config.php');
+         $stmt_staff = $conn->query("SELECT mail FROM staff");
+         $arr_1 = array();
+         while($row_1 = $stmt_staff->fetch_assoc()){
+             $arr_1[] = $row_1;
+         }
+         if(!$arr_1){
+             //var_dump($arr_1);
+             header("Location: ../project/status.php?status=error&table=organizes");
+             $stmt_staff->close();
+             exit();
+         }
+         $stmt_staff->close();
+
+         $stmt_event = $conn->query("SELECT event_name FROM event");
+         
+         $arr_2 = array();
+         while($row_2 = $stmt_event->fetch_assoc()){
+             $arr_2[] = $row_2;
+         }
+         if(!$arr_2){
+             //var_dump($arr_1);
+             header("Location: ../project/status.php?status=error&table=organizes");
+             $stmt_event->close();
+             exit();
+         }
+         $stmt_event->close();
+         $conn->close();
+     
     
+    ?>
     <body>
         <div class="container">
             <div class="row fullheight align-items-center">
@@ -27,15 +59,19 @@
                     <form method="post" action="../includes/input_form_organizes.php">
                         <!-- Get a list of staff mails. Below are examples -->
                         <p><select name="staff_mail">
-                            <option value="rome@jacobs-university.de">rome@jacobs-university.de</option>
-                            <option value="hmaas@jacobs-university.de">hmaas@jacobs-university.de</option>
-                            <option value="schoenw@jacobs-university.de">schoenw@jacobs-university.de</option>
+                            <?php 
+                                foreach($arr_1 as $row){
+                                    echo "<option value='". $row['mail'] . "'>" . $row["mail"] . "</option>";
+                                }
+                            ?>
                         </select></p>
                         <!-- Get a list of event name. Event name is unique. Below are examples -->
                         <p><select name="event_name">
-                            <option value="Art fest">Art fest</option>
-                            <option value="Dancestoned">Dancestoned</option>
-                            <option value="Swimming competition">Swimming competition</option>
+                            <?php 
+                                foreach($arr_2 as $row){
+                                    echo "<option value='". $row['event_name'] . "'>" . $row["event_name"] . "</option>";
+                                }
+                            ?>
                         </select></p>
                         <button class="btn btn-primary" type="submit" name="oversees_submit_btn">Create Relationship</button>
                     </form>
