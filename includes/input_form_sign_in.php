@@ -3,6 +3,7 @@
 
     $time_type = $_POST['time_type'];
 
+
     $stmt_timetable = $conn->prepare("SELECT * FROM timetable WHERE mail=?;");
     $stmt_timetable->bind_param('s', $member_mail);
     $member_mail = $_POST['member_mail'];
@@ -17,25 +18,27 @@
     $stmt_timetable->close();
    
     if($count==0){
-        //error;
+        header("location: ../project/status.php?status=error&table=timetable&search=true");
+        //header("location: ../project/error.html");
         exit();
     }
 
-    //foreign key constraint fails
+    //add to sign_in table
     $stmt_signin = $conn->prepare("INSERT INTO sign_in (members_mail, timetable_id) VALUES (?, ?);");
     $stmt_signin->bind_param('si', $member_mail, $timetable_id);
     $member_mail = $_POST['member_mail'];
     $timetable_id = $id;
     if(!$stmt_signin->execute()){
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=sign_in");
+        //header("location: ../project/status.php?status=error&table=sign_in");
         $stmt_signin->close();
         exit();
     }
     else{
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=sign_in_and_timetable");
+        //header("location: ../project/status.php?status=success&table=sign_in_and_timetable");
     }
     $stmt_signin->close();
 
     $conn->close();
+    exit();
 
 ?>

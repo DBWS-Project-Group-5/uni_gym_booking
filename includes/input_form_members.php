@@ -11,7 +11,7 @@
         $member_exp_date = mktime(0, 0, 0, $m, $d, $y);
     }
     if(!$stmt_member->execute()){
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=members");
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=members");
         $stmt_member->close();
         exit();
     }
@@ -23,12 +23,12 @@
         $stmt_gym->bind_param('s', $member_mail);
         $member_mail = $_POST['member_mail'];
         if(!$stmt_gym->execute()){
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=gym_members");
+            header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=gym_members");
             $stmt_gym->close();
             exit();
         }
         else{
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=gym_members_and_members");
+            header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=gym_members_and_members");
         }
         $stmt_gym->close();
     }
@@ -37,11 +37,11 @@
         $stmt_pool->bind_param('s', $member_mail);
         $member_mail = $_POST['member_mail'];
         if(!$stmt_pool->execute()){
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=pool_members");
+            header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=pool_members");
             $stmt_pool->close();
             exit();
         }else{
-            header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=pool_members_and_members");
+            header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=pool_members_and_members");
         }
         $stmt_pool->close();
     }
