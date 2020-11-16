@@ -119,7 +119,7 @@
                 <a href="Imprint.html">Imprint</a><br>
                 <a href="login_page.php">login page</a><br>
                 <a href="link_page.php">link page</a><br>
-                <a href="#">FAQs</a><br>
+                <a href="search_link_page.html">Search link page</a><br>
               </div>
           </div>
           <div class="col-sm-4">

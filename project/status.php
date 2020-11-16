@@ -75,8 +75,27 @@
         </ul>
       </div>
     </nav>
-    <!-- Container with flex -->
+
+ 
     <div class="container">
+      <div class="row d-flex flex-sm-row flex-column justify-content-center">
+      <?php
+        if($_GET['status']=="error"){
+            $table = $_GET['table'];
+            if(isset($_GET['search'])){
+              echo "<div class='alert alert-danger' role='alert'>Error: Search in $table failed</div>";
+            }
+            else{
+              echo "<div class='alert alert-danger' role='alert'>Error: Insertion to $table failed</div>";
+            }
+            
+        }
+        else{
+            $table = $_GET['table'];
+            echo "<div class='alert alert-success' role='alert'>Success: Your data was successfully inserted to the $table table(s)</div>";
+        }
+      ?> 
+      </div> 
       <div class="row d-flex flex-sm-row flex-column align-items-center fullheight">
 
         <div class="col">
@@ -105,18 +124,9 @@
           </div>
         </div>
         
-      </div>
+    </div>
 
-<?php
-    if($_GET['status']=="error"){
-        $table = $_GET['table'];
-        echo "<h1>Error: Insertion to $table failed</h1>";
-    }
-    else{
-        $table = $_GET['table'];
-        echo "<h1>Success: Your data was successfully inserted to the $table table(s)</h1>";
-    }
-?>
+
 
 </div>
     <!-- Footer -->
@@ -128,8 +138,8 @@
                 <a href="#">Contact</a><br>
                 <a href="#">About Us</a><br>
                 <a href="Imprint.html">Imprint</a><br>
-                <a href="link_page.html">link page</a><br>
-                <a href="#">FAQs</a><br>
+                <a href="link_page.php">link page</a><br>
+                <a href="search_link_page.html">Search link page</a><br>
               </div>
           </div>
           <div class="col-sm-4">

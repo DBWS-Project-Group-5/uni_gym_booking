@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['user_name'])){
-        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        header("Location: ../project/login_page.php?error=mismatch");
         exit();
     }
     require("../includes/config.php");

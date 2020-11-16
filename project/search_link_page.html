@@ -1,31 +1,8 @@
-<?php
-  require("../includes/config.php");
-  
-  $access_stmt = $conn->prepare("INSERT INTO web_log (ip, browsers, web_page) VALUES (?, ?, ?)");
-  
-  foreach(getallheaders() as $key => $value){
-    if($key === "Host"){
-      $host = $key;
-    }
-    elseif($key === "User-Agent"){
-      $agents = $key;
-    }
-  }
-  $page = 20;
-  $access_stmt->bind_param("ssi", $host, $agents, $page);
 
-  if(!$access_stmt->execute()){
-    $access_stmt->close();
-    $conn->close();
-    exit(1);
-  }
-  $access_stmt->close();
-  $conn->close();
-?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Error | Bookr</title>
+    <title>link_page | Bookr</title>
     <link href="assets/styles.css" rel="stylesheet">
     <link
       rel="stylesheet"
@@ -49,7 +26,7 @@
         <!-- Navbar or menu -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <!-- Brand and link to home -->
-          <a class="navbar-brand mx-5 st-a-brand" href="#">
+          <a class="navbar-brand mx-5 st-a-brand" href="index.html">
             <img src="assets/brand.svg" width="30" height="30" class="d-inline-block align-top" alt="bookr-logo" loading="lazy">
             Bookr
           </a>
@@ -78,19 +55,17 @@
           </div>
         </nav>
 
+        <div class="container">
+          <div class="row fullheight">
+            <div class="col-sm-4">
 
-        <div class="container-fluid">
-            <div class="row fullheight align-items-center" style="background-color:lightgrey;">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
-                    <h1>Oops! *o*</h1>
-                    <p>Error occurred in the process</p>
-                </div>
-                <div class="col-sm-6">
-                    <img src="assets/dead_com.gif" class="rounded" alt="dead com" width="304" height="236">
-                </div>
+            
+              <a href="search_form_event.html">search event</a><br>
+              <a href="search_form_members.html">search members</a><br>
+              <a href="search_form_oversees.php">search oversees</a><br>
+              </div>
             </div>
-        </div>
+        </div> 
 
         
 
@@ -104,6 +79,7 @@
                     <a href="#">About Us</a><br>
                     <a href="Imprint.html">Imprint</a><br>
                     <a href="link_page.php">link page</a><br>
+                    <a href="login_page.php">login page</a><br>
                     <a href="search_link_page.html">Search link page</a><br>
                     
                   </div>

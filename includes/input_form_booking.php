@@ -7,28 +7,28 @@
     $mail = $_POST['booking_mail'];
 
     if(!$stmt_timetable->execute()){
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=timetable");
+        header("Location: ../project/status.php?status=error&table=timetable");
         exit();
     }
+    $id = $conn->insert_id;
     $stmt_timetable->close();
 
-    $stmt_booking = $conn->prepare("INSERT INTO booking (book_time) VALUES (FROM_UNIXTIME(?));");
-    $stmt_booking->bind_param('i', $time);
-
+    
+    $stmt_booking = $conn->prepare("INSERT INTO booking (book_time, timetable_id) VALUES (FROM_UNIXTIME(?), ?);");
+    $stmt_booking->bind_param('ii', $time, $id);
+    
     $time = $_POST['booking_time'];
     //create a UNIX timestamp for mysql table
     $time = explode(':', $time);
     if(count($time) == 2){
-        list($s, $m) = $time;
-        $today_date = mktime();
-        $time = $today_date + $m * 60 + $s;
+        list($h, $m) = $time;
+        $today_date = mktime($h, $m, 0, date("m"), date("d"), date("Y"));
     }
-
     if($stmt_booking->execute()){
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=error&table=booking");
+        header("Location: ../project/status.php?status=error&table=booking");
     }
     else{
-        header("location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/status.php?status=success&table=timetable_and_booking");
+        header("Location: ../project/status.php?status=success&table=timetable_and_booking");
     }
     $stmt_booking->close();
 

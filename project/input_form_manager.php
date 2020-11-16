@@ -47,8 +47,8 @@
                 <div class="col-sm-4 mx-auto">
                     <h2>Manager input form</h2>
                     <form method="post" action="../includes/input_form_manager.php">
-                        <p><input type="text" name="mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="name" placeholder="Input name" required></p>
+                        <p><input type="text" name="m_mail" placeholder="Input mail" autofocus required></p>
+                        <p><input type="text" name="m_name" placeholder="Input name" required></p>
                         <p><input type="text" name="hours_worked" placeholder="Input hours worked" required></p>
                         <button class="btn btn-primary" type="submit" name="manager_submit_btn">Submit data</button>
                     </form>
