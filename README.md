@@ -4,3 +4,7 @@ Due to the corona pandemic, Jacobs University’s gym and pool has been shut dow
 to pass login page, use following creds:
 email: admin@jub.de password: admin
 
+for access log diagram the x-axis is the urls visited
+
+for error log diagram the x-axis is the error type
+

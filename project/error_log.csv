@@ -1,6 +1,6 @@
-10.222.131.26:37284,AH00529: /people/home/skattel/public_html/uni_gym_booking/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/' is executa,Mon Nov 16 08:54:43.572059 2020
-10.222.131.26:37294,AH00529: /people/home/skattel/public_html/uni_gym_booking/includes/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/includes/' is executable,Mon Nov 16 08:55:33.647487 2020
-10.222.131.26:37294,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executable,Mon Nov 16 08:55:33.647828 2020
+10.222.131.26:37284,AH00529: /people/home/skattel/public_html/uni_gym_booking/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 08:54:43.572059 2020
+10.222.131.26:37294,AH00529: /people/home/skattel/public_html/uni_gym_booking/includes/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 08:54:43.572059 2021
+10.222.131.26:37294,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 08:54:43.572059 2022
 10.222.131.26:37308,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 08:56:15.933278 2020
 10.222.131.26:37308,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 08:56:15.933931 2020
 10.222.131.26:37308,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 08:56:15.934428 2020
@@ -105,7 +105,7 @@
 10.222.131.26:37438,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:02:51.266598 2020
 10.222.131.26:37438,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:02:51.266856 2020
 10.222.131.26:37438,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:02:51.267106 2020
-10.222.131.26:37438,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executable,Mon Nov 16 09:02:51.267357 2020
+10.222.131.26:37438,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 09:02:51.267357 2020
 10.222.131.26:37440,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:03:11.727857 2020
 10.222.131.26:37440,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:03:11.728211 2020
 10.222.131.26:37440,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includes/,Mon Nov 16 09:03:11.728527 2020
@@ -128,22 +128,22 @@
 10.222.131.26:37498,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:10.501626 2020
 10.222.131.26:37498,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:10.501949 2020
 10.222.131.26:37498,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:10.502251 2020
-10.222.131.26:37498,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executa,Mon Nov 16 09:07:10.502509 2020
-10.222.131.26:37498,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executa,Mon Nov 16 09:07:15.911400 2020
+10.222.131.26:37498,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 09:07:10.502509 2020
+10.222.131.26:37498,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 09:07:15.911400 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.649258 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.649585 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.649921 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.650209 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.650489 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:55.650780 2020
-10.222.131.26:37510,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executa,Mon Nov 16 09:07:55.651061 2020
+10.222.131.26:37510,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 09:07:55.651061 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.281162 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.281438 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.281707 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.281962 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.282223 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:07:57.282499 2020
-10.222.131.26:37510,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable and that '/people/home/skattel/public_html/uni_gym_booking/project/' is executa,Mon Nov 16 09:07:57.282546 2020
+10.222.131.26:37510,AH00529: /people/home/skattel/public_html/uni_gym_booking/project/.htaccess pcfg_openfile: unable to check htaccess file,Mon Nov 16 09:07:57.282546 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:08:12.132332 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:08:12.132959 2020
 10.222.131.26:37510,AH00686: cannot read directory for multi: /people/home/skattel/public_html/uni_gym_booking/includ,Mon Nov 16 09:08:12.133306 2020
