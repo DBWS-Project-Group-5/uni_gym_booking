@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:../project/login_page.php?error=mismatch");
+        exit();
+    }
+?>   
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,12 +23,11 @@
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Manager input form</h2>
-                    <form method="post" action="../includes/input_form_manager.php">
-                        <p><input type="text" name="m_mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="m_name" placeholder="Input name" required></p>
-                        <p><input type="text" name="hours_worked" placeholder="Input hours worked" required></p>
-                        <button class="btn btn-primary" type="submit" name="manager_submit_btn">Submit data</button>
+                    <h2>Booking input form</h2>
+                    <form method="post" action="../includes/input_form_booking.php">
+                        <p><input type="time" name="booking_time" placeholder="Input time" autofocus required></p>
+                        <p><input type="text" name="booking_mail" placeholder="Input mail" required></p>
+                        <button class="btn btn-primary" type="submit" name="booking_submit_btn">Submit data</button>
                     </form>
                 </div>
             </div>

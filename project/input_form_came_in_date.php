@@ -1,4 +1,10 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        exit();
+    }
+ ?>   
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -17,16 +23,17 @@
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Staff input form</h2>
-                    <form method="post" action="../includes/input_form_staff.php">
-                        <p><input type="text" name="staff_mail" placeholder="Input mail" autofocus required></p>
-                        <p><input type="text" name="staff_name" placeholder="Input name" required></p>
-                        <p><input type="text" name="staff_hours_worked" placeholder="Input hours worked" required></p>
-                        <p><select name="staff_type">
-                            <option value="gym_staff">Gym staff</option>
-                            <option value="pool_staff">Pool staff</option>
+                    <h2>Came_in_date input form</h2>
+                    <form method="post" action="../includes/input_form_came_in_date.php">
+                        <p><label>Start Time: </label></label><input type="time" name="came_in_start_time" placeholder="Input start time" autofocus required></p>
+                        <p><label>End Time: </label></label><input type="time" name="came_in_end_time" placeholder="Input end time" required></p>
+                        <p><select name="came_in_status">
+                            <option value="status_0">Signed in</option>
+                            <option value="status_1">Out of time</option>
+                            <option value="status_2">Signed out</option>
                         </select></p>
-                        <button class="btn btn-primary" type="submit" name="staff_submit_btn">Submit data</button>
+                        <p><input type="text" name="came_in_mail" placeholder="Input mail" required></p>
+                        <button class="btn btn-primary" type="submit" name="came_in_submit_btn">Submit data</button>
                     </form>
                 </div>
             </div>

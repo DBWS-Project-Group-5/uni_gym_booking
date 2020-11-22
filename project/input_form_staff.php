@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        exit();
+    }
+ ?> 
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,11 +23,16 @@
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Booking input form</h2>
-                    <form method="post" action="../includes/input_form_booking.php">
-                        <p><input type="time" name="booking_time" placeholder="Input time" autofocus required></p>
-                        <p><input type="text" name="booking_mail" placeholder="Input mail" required></p>
-                        <button class="btn btn-primary" type="submit" name="booking_submit_btn">Submit data</button>
+                    <h2>Staff input form</h2>
+                    <form method="post" action="../includes/input_form_staff.php">
+                        <p><input type="text" name="staff_mail" placeholder="Input mail" autofocus required></p>
+                        <p><input type="text" name="staff_name" placeholder="Input name" required></p>
+                        <p><input type="text" name="staff_hours_worked" placeholder="Input hours worked" required></p>
+                        <p><select name="staff_type">
+                            <option value="gym_staff">Gym staff</option>
+                            <option value="pool_staff">Pool staff</option>
+                        </select></p>
+                        <button class="btn btn-primary" type="submit" name="staff_submit_btn">Submit data</button>
                     </form>
                 </div>
             </div>

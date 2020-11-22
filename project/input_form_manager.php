@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['user_name'])){
+        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
+        exit();
+    }
+ ?> 
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,12 +23,12 @@
         <div class="container">
             <div class="row fullheight align-items-center">
                 <div class="col-sm-4 mx-auto">
-                    <h2>Event input form</h2>
-                    <form method="post" action="../includes/input_form_event.php">
-                        <p><input type="text" name="event_name" placeholder="Input name" autofocus required></p>
-                        <p><input type="date" name="event_date" placeholder="Input date" required></p>
-                        <p><textarea name="event_content" placeholder="Write about event" required rows="10" cols="40"></textarea></p>
-                        <button class="btn btn-primary" type="submit" name="event_submit_btn">Submit data</button>
+                    <h2>Manager input form</h2>
+                    <form method="post" action="../includes/input_form_manager.php">
+                        <p><input type="text" name="m_mail" placeholder="Input mail" autofocus required></p>
+                        <p><input type="text" name="m_name" placeholder="Input name" required></p>
+                        <p><input type="text" name="hours_worked" placeholder="Input hours worked" required></p>
+                        <button class="btn btn-primary" type="submit" name="manager_submit_btn">Submit data</button>
                     </form>
                 </div>
             </div>
