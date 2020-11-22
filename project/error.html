@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>table | Bookr</title>
+    <title>Error | Bookr</title>
     <link href="assets/styles.css" rel="stylesheet">
     <link
       rel="stylesheet"
@@ -25,7 +25,7 @@
         <!-- Navbar or menu -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <!-- Brand and link to home -->
-          <a class="navbar-brand mx-5 st-a-brand" href="index.html">
+          <a class="navbar-brand mx-5 st-a-brand" href="#">
             <img src="assets/brand.svg" width="30" height="30" class="d-inline-block align-top" alt="bookr-logo" loading="lazy">
             Bookr
           </a>
@@ -53,70 +53,20 @@
             </ul>
           </div>
         </nav>
-        
-        <?php
-          require('../includes/config.php');
-          $stmt_event = $conn->prepare("SELECT id, event_name, event_date FROM event WHERE event_name=?");
-          $stmt_event->bind_param('s', $event_name);
-          $event_name = $_POST['event_name'];
-          
-          $stmt_event->execute();
-          $arr = $stmt_event->get_result();
-          $arr_1 = array();
-          while($row_1 = $arr->fetch_assoc()){
-              $arr_1[] = $row_1;
-          }
-          //var_dump($arr_1);
-          if(!$arr_1){
-              //var_dump($arr_1);
-              echo "<h3>No match found :( </h3>";
-              $stmt_event->close();
-              exit();
-          }
-          $stmt_event->close();
-          $conn->close();
-        ?>
-        
-        <div class="row fullheight mt-5 justify-content-center">
-          <div class="col-sm-8">
-            <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                  <th scope="col">Event id</th>
-                  <th scope="col">Event name</th>
-                  <th scope="col">Event date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                  foreach($arr_1 as $row){
-                    echo "<tr>";
-                    echo "<th scope='row'>" . $row['id'] . "</th>";
-                    printf("<td><a href='result_page.php?table=event&id=%d'>%s</a></td>", $row['id'], $row['event_name']);
-                    echo "<td>" . $row['event_date'] . "</td>";
-                    echo "</tr>";
-                  }
-                ?>
-                <!-- <tr>
-                  <th scope="row">Mark Jasper</th>
-                  <td>m.jasper@jacobs-university.de</td>
-                  <td>m.jasper@jacobs-university.de</td>
-                </tr>
-                <tr>
-                  <th scope="row">Jacob Khan</th>
-                  <td>j.khan@jacobs-university.de</td>
-                  <td>m.jasper@jacobs-university.de</td>
-                </tr>
-                <tr>
-                  <th scope="row">Jonny lee</th>
-                  <td>j.lee@jacobs-university.de</td>
-                  <td>m.jasper@jacobs-university.de</td>
-                </tr> -->
-            </tbody>
-            </table>
-          </div>
+
+
+        <div class="container-fluid">
+            <div class="row fullheight align-items-center" style="background-color:lightgrey;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <h1>Oops! *o*</h1>
+                    <p>Error occurred in the process</p>
+                </div>
+                <div class="col-sm-6">
+                    <img src="assets/dead_com.gif" class="rounded" alt="dead com" width="304" height="236">
+                </div>
+            </div>
         </div>
-        
 
         
 
@@ -130,7 +80,7 @@
                     <a href="#">About Us</a><br>
                     <a href="Imprint.html">Imprint</a><br>
                     <a href="link_page.php">link page</a><br>
-                    <a href="#">FAQs</a><br>
+                    <a href="search_link_page.html">Search link page</a><br>
                     
                   </div>
               </div>

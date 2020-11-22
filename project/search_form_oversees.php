@@ -101,7 +101,7 @@
                             <!-- <option value="nibragimov@jub.de"><?php echo $arr_1[0]['mail']?></option>
                             <option value="abo@jub.de"><?php echo $arr_1[1]['mail']?></option>
                             <option value="jdoe@jub.de"><?php echo $arr_1[2]['mail']?></option> -->
-                        </select>
+                    </select>
                   </div>
                 <div class="form-group">
                     <button class="btn btn-dark" type="submit">Search</button>

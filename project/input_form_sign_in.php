@@ -1,32 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['user_name'])){
-        header("Location:http://clabsql.clamv.jacobs-university.de/~nibragimov/uni_gym_booking/project/login_page.php?error=mismatch");
-        exit();
-    }
-    require("../includes/config.php");
-  
-    $access_stmt = $conn->prepare("INSERT INTO web_log (ip, browsers, web_page) VALUES (?, ?, ?)");
-    
-    foreach(getallheaders() as $key => $value){
-        if($key === "Host"){
-        $host = $key;
-        }
-        elseif($key === "User-Agent"){
-        $agents = $key;
-        }
-    }
-    $page = 8;
-    $access_stmt->bind_param("ssi", $host, $agents, $page);
 
-    if(!$access_stmt->execute()){
-        $access_stmt->close();
-        $conn->close();
-        exit(1);
-    }
-    $access_stmt->close();
-    $conn->close();
-?>
 <!DOCTYPE HTML>
 <html>
     <head>
