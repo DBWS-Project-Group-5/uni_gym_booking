@@ -6,11 +6,17 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <!-- Custom styles -->
         <link rel="stylesheet" href="assets/styles.css">
+        <!-- css autocomplete for bootstrap -->
+        <link rel="stylesheet" href="assets/autocomplete.css">
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <!-- jquery UI -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     </head>
     <!-- Bootstrap JS and JQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    
     <?php
         require('../includes/config.php');
         $stmt_members = $conn->query("SELECT mail FROM members");
@@ -43,10 +49,8 @@
         $conn->close();
     ?>
   <body>
-    <!-- <h1>Hello, world!</h1> -->
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper)-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    
     
     
     <!-- Navbar or menu -->
@@ -92,21 +96,32 @@
             <form method="post" action="search_result_oversees.php">
                 <div class="form-group">
                     <label for="searchFormMembersMail">Member mail</label>
-                    <select name="members_mail">
+                    <input type="text" id="autocomplete_oversees" class="form-control" name="members_mail" id="searchFormMemInput" placeholder="abo@jub.de">
+                    
+
+
+
+                   
+                    <!-- <select name="members_mail">
                             <?php 
-                                foreach($arr_1 as $row){
-                                    echo "<option value='". $row['mail'] . "'>" . $row["mail"] . "</option>";
-                                }
+                                // foreach($arr_1 as $row){
+                                //     echo "<option value='". $row['mail'] . "'>" . $row["mail"] . "</option>";
+                                // }
                             ?>
-                            <!-- <option value="nibragimov@jub.de"><?php echo $arr_1[0]['mail']?></option>
-                            <option value="abo@jub.de"><?php echo $arr_1[1]['mail']?></option>
-                            <option value="jdoe@jub.de"><?php echo $arr_1[2]['mail']?></option> -->
-                    </select>
+                            
+                    </select> -->
                   </div>
                 <div class="form-group">
                     <button class="btn btn-dark" type="submit">Search</button>
                 </div>
             </form>
+            <script>
+              $("#autocomplete_oversees").autocomplete({
+                  source: "../includes/autocomplete_oversees.php",
+                  minLength: 2
+              });
+            
+          </script>
         </div>
     </div>
 
