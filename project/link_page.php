@@ -67,12 +67,12 @@
 
             
               <!--entities-->
-              <a href="input_form_booking.html">booking</a><br>
-              <a href="input_form_came_in_date.html">came_in_date</a><br>
-              <a href="input_form_members.html">members</a><br>
-              <a href="input_form_staff.html">staff</a><br>
-              <a href="input_form_manager.html">Manager</a><br>
-              <a href="input_form_event.html">events</a><br>
+              <a href="input_form_booking.php">booking</a><br>
+              <a href="input_form_came_in_date.php">came_in_date</a><br>
+              <a href="input_form_members.php">members</a><br>
+              <a href="input_form_staff.php">staff</a><br>
+              <a href="input_form_manager.php">Manager</a><br>
+              <a href="input_form_event.php">events</a><br>
 
               <!--relations-->
               <a href="input_form_sign_in.php">sign in</a><br>
