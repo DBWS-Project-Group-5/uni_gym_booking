@@ -203,3 +203,17 @@ ul{
 a{
     font-size: 14px;
 }
+
+#mapid{
+    height: 450px;
+    width: 100%;
+    position: relative;
+
+}
+#mapdemoid{
+    position: relative;
+    outline: none;
+    height: 400px;
+    width: 600px;
+
+}
