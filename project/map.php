@@ -86,6 +86,10 @@
         fetch(`https://ipinfo.io/${ip}?token=${TOKEN}`)
           .then((res) => res.json())
           .then((data) => {
+            if(data.loc === undefined){
+              //window.location.href='error.html';
+              return;
+            }
             data = data.loc.split(",")
             //x = latitude y = longitude
             x = data[0]
