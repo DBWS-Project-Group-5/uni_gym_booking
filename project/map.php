@@ -69,23 +69,21 @@
         
     </div>
 
-    <?php
-      $ip = $_SERVER[REMOTE_ADDR];
-      echo "<input type='hidden' value=$ip id='ip'>";
-    ?>
     <script>
         //get the hidden input field
-        let ip = document.getElementById('ip').value;
+        //let ip = document.getElementById('ip').value;
+      
         //access token for ipinfo.io
-        let TOKEN = '4a76c2c189013b';
+        const TOKEN = '4a76c2c189013b';
         //GET request with the ip of our client
-        fetch(`https://ipinfo.io/${ip}?token=${TOKEN}`)
+        fetch(`https://ipinfo.io?token=${TOKEN}`)
           .then((res) => res.json())
           .then((data) => {
             if(data.loc === undefined){
               // window.location.href='error.html';
               return;
             }
+            var ip = data.ip;
             data = data.loc.split(",")
             //x = latitude y = longitude
             x = data[0]
