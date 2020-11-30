@@ -68,21 +68,40 @@
         </div>
         
     </div>
-    <script>
-        let str = "Some ip address";
-        let x = 51.505, y = -0.09;
 
-        var mymap = L.map('mapid').setView([x, y], 13);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: 'pk.eyJ1IjoibmlicmFnaW1vdiIsImEiOiJja2kzNWQ4NDExNzNxMnFtc2o3eTR4c2NoIn0.jzMxdpNDSJrrEootMqvIkw'
-        }).addTo(mymap);
-        var marker = L.marker([x, y]).addTo(mymap);
-        marker.bindPopup(`<b>${str}</b>`).openPopup();
+    <?php
+      foreach(getallheaders() as $key => $value){
+        if($key == "Host"){
+          $ip = $value;
+        }
+      }
+      echo "<input type='hidden' value=$ip id='ip'>";
+    ?>
+    <script>
+        //get the hidden input field
+        let ip = document.getElementById('ip').value;
+        //access token for ipinfo.io
+        let TOKEN = '4a76c2c189013b';
+        //GET request with the ip of our client
+        fetch(`https://ipinfo.io/${ip}?token=${TOKEN}`)
+          .then((res) => res.json())
+          .then((data) => {
+            data = data.loc.split(",")
+            //x = latitude y = longitude
+            x = data[0]
+            y = data[1]
+            var mymap = L.map('mapid').setView([x, y], 13);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoibmlicmFnaW1vdiIsImEiOiJja2kzNWQ4NDExNzNxMnFtc2o3eTR4c2NoIn0.jzMxdpNDSJrrEootMqvIkw'
+            }).addTo(mymap);
+            var marker = L.marker([x, y]).addTo(mymap);
+            marker.bindPopup(`<b>${ip}</b>`).openPopup();
+              })
     </script>
 
 <!-- Footer -->
