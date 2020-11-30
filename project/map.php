@@ -70,11 +70,7 @@
     </div>
 
     <?php
-      foreach(getallheaders() as $key => $value){
-        if($key == "Host"){
-          $ip = $value;
-        }
-      }
+      $ip = $_SERVER[REMOTE_ADDR];
       echo "<input type='hidden' value=$ip id='ip'>";
     ?>
     <script>
