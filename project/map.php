@@ -83,7 +83,7 @@
           .then((res) => res.json())
           .then((data) => {
             if(data.loc === undefined){
-              //window.location.href='error.html';
+              // window.location.href='error.html';
               return;
             }
             data = data.loc.split(",")
