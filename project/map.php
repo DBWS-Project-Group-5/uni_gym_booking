@@ -111,7 +111,7 @@
                     <div class="pl-5 pt-2">
                         <b>Links</b><br>
                         <a href="#">Contact</a><br>
-                        <a href="#">About Us</a><br>
+                        <a href="map.php">Map</a><br>
                         <a href="Imprint.html">Imprint</a><br>
                         <a href="login_page.php">login page</a><br>
                         <a href="link_page.php">link page</a><br>
